@@ -1,1 +1,106 @@
-"Hello World! Welcome to my website" 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kacoding</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/Logo.png" type="image/png">
+</head>
+
+<body>
+    <header>
+        <div class="jumbotron">
+            <h1>Jam Dunia</h1>
+            <blockquote>
+                <cite>
+                    Usia, jarak, waktu dan kelas sosial hanyalah angka bagi dua orang yang saling memperjuangkan satu sama lain.
+                </cite> - Fiersa Besari
+            </blockquote>
+        </div>
+        <nav>
+            <!-- masih gagal dalam memunculkan navbar ketika sudah dihilangkan oleh icon-->
+            <!-- <a href="#" class="icon" onclick="navBar()">
+                &#9776
+            </a> -->
+            <ul id="subNav">
+                <li><a onclick="clock(0); getElementById('lokasi').innerHTML = 'UTC';" href="#">UTC</a></li>
+                <li><a onclick="clock(-11); getElementById('lokasi').innerHTML = 'Arofi';" href="#">Arofi</a></li>
+                <li><a onclick="clock(14); getElementById('lokasi').innerHTML = 'Apia';" href="#">Apia</a></li>
+                <li><a onclick="clock(5.5); getElementById('lokasi').innerHTML = 'Delhi';" href="#">Delhi</a></li>
+                <li><a onclick="clock(7); getElementById('lokasi').innerHTML = 'Jakarta';" href="#">Jakarta</a></li>
+                <li><a onclick="clock(1); getElementById('lokasi').innerHTML = 'London';" href="#">London</a></li>
+                <li><a onclick="clock(2); getElementById('lokasi').innerHTML = 'Paris';" href="#">Paris</a></li>
+                <li><a onclick="clock(8); getElementById('lokasi').innerHTML = 'Singapore';" href="#">Singapore</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="content">
+            <article>
+                <span id="tanggal"></span>
+            </article>
+            <article id="clock">
+                <span id="jam"></span>
+                <span>:</span>
+                <span id="menit"></span>
+                <span>:</span>
+                <span id="detik"></span>
+            </article>
+            <article class="daerah">
+                <span>Waktu di <span id="lokasi">UTC</span></span>
+            </article>
+            <article class="peta">
+                <figure>
+                    <img src="assets/img/world map.png" alt="">
+                    <figcaption>World Map</figcaption>
+                </figure>
+            </article>
+        </div>
+
+        <aside class="profile">
+            <article>
+                <header>
+                    <h2>Profile</h2>
+                    <figure>
+                        <img src="assets/img/profile.jpg">
+                    </figure>
+                </header>
+                <section>
+                    <table>
+                        <tr>
+                            <th>Nama</th>
+                            <td>M Salman Al Hafizh</td>
+                        </tr>
+                        <tr>
+                            <th>TTL</th>
+                            <td>13 Mei 1999</td>
+                        </tr>
+                        <tr>
+                            <th>Kuliah</th>
+                            <td>POLBAN</td>
+                        </tr>
+                        <tr>
+                            <th>Jurusan</th>
+                            <td>T. Komputer & Informatika</td>
+                        </tr>
+                        <tr>
+                            <th>Prodi</th>
+                            <td>D4 - Teknik Informatika</td>
+                        </tr>
+                    </table>
+                </section>
+            </article>
+        </aside>
+    </main>
+
+    <footer>
+        <p>Submission Dicoding &copy; 2020, Salman</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

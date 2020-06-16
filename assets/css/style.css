@@ -1,0 +1,178 @@
+/* UMUM */
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
+body {
+    font-family: 'Quicksand', sans-serif;
+    /* width: 1000px; */
+    margin: auto;
+    box-shadow: 0 1px 10px;
+}
+
+.box {
+    box-shadow: 0 1px 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+
+header {
+    display: inline;
+}
+
+.jumbotron {
+    font-size: 1em;
+    padding: 5px;
+    background-color: #ca5100;
+    text-align: center;
+    color: white;
+}
+
+nav {
+    width: 100%;
+    background-color: #803300;
+    padding: 5px;
+    position: sticky;
+    top: 0;
+    overflow: auto;
+}
+
+nav li {
+    display: inline;
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+nav a {
+    font-size: 1em;
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    font-weight: bold;
+}
+
+a.icon {
+    display: none;
+}
+
+subNav {
+    display: inline;
+}
+
+
+/* MAIN */
+
+main {
+    clear: both;
+    background-color: #f0f0f0;
+    padding: 20px;
+    overflow: auto;
+}
+
+#content {
+    float: left;
+    width: 75%;
+    padding: 0 20px;
+}
+
+#clock {
+    color: black;
+    font-size: 5em;
+    text-align: center;
+}
+
+#tanggal {
+    font-size: 1.5em;
+}
+
+#GMT {
+    font-size: 1.5em;
+}
+
+.daerah {
+    text-align: right;
+    font-size: 1.5em;
+}
+
+.peta img {
+    width: 100%;
+}
+
+figcaption {
+    text-align: center;
+}
+
+
+/* SIDEBAR */
+
+.profile header {
+    text-align: center;
+}
+
+.profile img {
+    width: 100%;
+}
+
+aside {
+    float: right;
+    width: 25%;
+    padding-left: 20px;
+    box-shadow: 0 1px 10px #ca5100;
+}
+
+th {
+    text-align: left;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 5px;
+    color: white;
+    background-color: #ca5100;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* MEDIASCREEN */
+
+@media screen and (max-width: 800px) {
+    #content,
+    aside {
+        width: 100%;
+        padding: 0;
+    }
+    .profile img {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    nav a {
+        font-size: small;
+    }
+}
+
+@media screen and (max-width: 555px) {
+    nav a {
+        font-size: x-small;
+    }
+}
+
+
+/* @media screen and (max-width: 700px) {
+    subNav {
+        display: none;
+    }
+    a.icon {
+        display: inline;
+    }
+} */
