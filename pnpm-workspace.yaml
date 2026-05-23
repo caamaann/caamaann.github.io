@@ -1,3 +1,8 @@
 onlyBuiltDependencies:
   - sharp
   - unrs-resolver
+
+# Force a patched postcss (build-time transitive dep of next) to clear
+# advisory GHSA-qx2v-qp2m-jg93.
+overrides:
+  postcss: ">=8.5.10"

@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Muhammad Salman Al Hafizh — Portfolio
 
-## Getting Started
+Personal portfolio of a Fullstack Engineer specializing in frontend web
+development. Built with Next.js and statically exported to **GitHub Pages**.
 
-First, run the development server:
+🔗 Live: https://caamaann.github.io
+
+## Tech stack
+
+- **Next.js 16** (App Router, `output: "export"` — fully static)
+- **React 19** + **TypeScript**
+- **Tailwind CSS 4**
+- **framer-motion** (animations) · **Lenis** (smooth scroll)
+- **next-themes** (dark/light) · bilingual EN/ID
+- **Web3Forms** (serverless contact form backend)
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev          # http://localhost:3000
+pnpm build        # static export to ./out
+pnpm lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable                    | Required | Description                                              |
+| --------------------------- | -------- | -------------------------------------------------------- |
+| `NEXT_PUBLIC_WEB3FORMS_KEY` | for form | Public Web3Forms access key. Without it the form is disabled and visitors are pointed to the email/social links. |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Get a free key at https://web3forms.com (enter your email, the key is emailed
+to you). It is a **public** key by design — safe to expose in client code.
 
-## Learn More
+For local dev, create `.env.local`:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+NEXT_PUBLIC_WEB3FORMS_KEY=your-access-key
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Pushing to `master` triggers `.github/workflows/deploy.yml`, which builds the
+static export and publishes it to GitHub Pages.
 
-## Deploy on Vercel
+To enable the contact form in production, add the key as a **repository
+variable** (not a secret — it's public and needs to be inlined at build time):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> Repo **Settings → Secrets and variables → Actions → Variables → New variable**
+> Name: `WEB3FORMS_KEY` · Value: your Web3Forms access key
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## SEO & metadata
+
+- Open Graph / Twitter card image generated at build (`opengraph-image.tsx`)
+- `sitemap.xml`, `robots.txt`, and a web manifest (`app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`)
+- JSON-LD `Person` structured data and canonical URL in `app/layout.tsx`
+
+## A note on security headers
+
+GitHub Pages serves static files only and cannot send custom HTTP response
+headers, so a true `Content-Security-Policy`, `HSTS`, etc. aren't possible.
+The strongest available fallback — a `<meta http-equiv>` CSP plus
+`referrer` policy and `rel="noopener noreferrer"` on external links — is
+applied in `app/layout.tsx`. Directives that only work as real headers
+(e.g. `frame-ancestors`) are included for completeness but ignored by browsers
+in `<meta>` form.

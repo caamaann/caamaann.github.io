@@ -36,6 +36,11 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          # Public Web3Forms access key for the contact form.
+          # Set this as a repository *variable* (Settings → Secrets and
+          # variables → Actions → Variables) named WEB3FORMS_KEY.
+          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ vars.WEB3FORMS_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

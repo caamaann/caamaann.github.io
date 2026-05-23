@@ -129,6 +129,9 @@ export function Navbar() {
               title={
                 locale === "en" ? "Switch to Indonesian" : "Switch to English"
               }
+              aria-label={
+                locale === "en" ? "Switch to Indonesian" : "Switch to English"
+              }
             >
               <Globe size={14} />
               {locale.toUpperCase()}
@@ -142,6 +145,7 @@ export function Navbar() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 title={theme === "dark" ? "Switch to Light" : "Switch to Dark"}
+                aria-label={theme === "dark" ? "Switch to Light" : "Switch to Dark"}
               >
                 <AnimatePresence mode="wait">
                   {theme === "dark" ? (
@@ -174,6 +178,9 @@ export function Navbar() {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={toggleLocale}
+              aria-label={
+                locale === "en" ? "Switch to Indonesian" : "Switch to English"
+              }
               className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-(--text-secondary) bg-(--bg-card) border border-(--border)"
             >
               <Globe size={12} />
@@ -183,6 +190,7 @@ export function Navbar() {
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label={theme === "dark" ? "Switch to Light" : "Switch to Dark"}
                 className="p-2 rounded-lg text-(--text-secondary) bg-(--bg-card) border border-(--border)"
               >
                 {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
@@ -191,6 +199,8 @@ export function Navbar() {
 
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
+              aria-label={isMobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileOpen}
               className="p-2 rounded-lg relative z-10 text-(--text-primary)"
             >
               {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
