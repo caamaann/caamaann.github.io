@@ -43,11 +43,16 @@ NEXT_PUBLIC_WEB3FORMS_KEY=your-access-key
 Pushing to `master` triggers `.github/workflows/deploy.yml`, which builds the
 static export and publishes it to GitHub Pages.
 
-To enable the contact form in production, add the key as a **repository
-variable** (not a secret — it's public and needs to be inlined at build time):
+To enable the contact form in production, add the key as a **variable** named
+`NEXT_PUBLIC_WEB3FORMS_KEY` (not a secret — it's public and is inlined into the
+client bundle at build time). Either:
 
-> Repo **Settings → Secrets and variables → Actions → Variables → New variable**
-> Name: `WEB3FORMS_KEY` · Value: your Web3Forms access key
+- a **repository variable** (available to all jobs), or
+- an **environment variable** on the `github-pages` environment — the build
+  job declares `environment: github-pages` so it can read it.
+
+> Repo **Settings → Secrets and variables → Actions → Variables**
+> Name: `NEXT_PUBLIC_WEB3FORMS_KEY` · Value: your Web3Forms access key
 
 ## SEO & metadata
 
