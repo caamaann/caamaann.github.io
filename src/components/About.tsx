@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { CountUp } from "@/components/ui/CountUp";
 import { Calendar, Briefcase, Users } from "lucide-react";
 
 const stats = [
@@ -70,10 +71,7 @@ export function About() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                 >
-                  <span>
-                    {stat.valueNum}
-                    {stat.suffix}
-                  </span>
+                  <CountUp value={stat.valueNum} suffix={stat.suffix} />
                 </motion.div>
                 <p className="text-sm font-medium text-(--text-secondary) text-left">
                   {t.about.stats[stat.key]}

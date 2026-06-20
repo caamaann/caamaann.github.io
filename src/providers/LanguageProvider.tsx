@@ -5,6 +5,7 @@ import {
   useContext,
   useState,
   useCallback,
+  useEffect,
   type ReactNode,
 } from "react";
 import { translations, type Locale, type TranslationKeys } from "@/lib/i18n";
@@ -25,6 +26,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const toggleLocale = useCallback(() => {
     setLocale((prev) => (prev === "en" ? "id" : "en"));
   }, []);
+
+  // Keep <html lang> in sync with the active locale for a11y / SEO.
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const t = translations[locale];
 

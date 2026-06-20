@@ -14,10 +14,23 @@ export const translations = {
       greeting: "Hi, I'm",
       name: "Salman",
       role: "Fullstack Engineer",
+      roles: [
+        "Fullstack Engineer",
+        "Frontend Specialist",
+        "React & Next.js Expert",
+        "Enterprise Web Developer",
+      ],
+      available: "Available for work",
       tagline:
         "Specializing in Frontend Web Development with extensive experience building scalable, enterprise-grade web applications.",
       cta_work: "View My Work",
       cta_contact: "Get In Touch",
+      trustedBy: "Trusted by teams at",
+      stats: {
+        years: "Years Exp.",
+        projects: "Projects",
+        clients: "Clients",
+      },
     },
     about: {
       title: "About Me",
@@ -65,25 +78,6 @@ export const translations = {
       subtitle:
         "Have a project in mind or want to collaborate? Feel free to reach out!",
       location: "Garut, Indonesia",
-      form: {
-        heading: "Send a message",
-        name: "Name",
-        email: "Email",
-        message: "Message",
-        namePlaceholder: "Your name",
-        emailPlaceholder: "you@example.com",
-        messagePlaceholder: "Tell me about your project...",
-        send: "Send Message",
-        sending: "Sending...",
-        success:
-          "Thanks! Your message has been sent. I'll get back to you soon.",
-        error:
-          "Something went wrong. Please try again or email me directly.",
-        required: "Please fill in all fields.",
-        invalidEmail: "Please enter a valid email address.",
-        unavailable:
-          "The contact form isn't configured yet — please use the email or social links above.",
-      },
     },
     footer: {
       rights: "All rights reserved.",
@@ -103,10 +97,23 @@ export const translations = {
       greeting: "Hai, Saya",
       name: "Salman",
       role: "Fullstack Engineer",
+      roles: [
+        "Fullstack Engineer",
+        "Spesialis Frontend",
+        "Expert React & Next.js",
+        "Developer Web Enterprise",
+      ],
+      available: "Tersedia untuk bekerja",
       tagline:
         "Spesialis dalam Pengembangan Web Frontend dengan pengalaman luas membangun aplikasi web skala enterprise yang skalabel.",
       cta_work: "Lihat Karya Saya",
       cta_contact: "Hubungi Saya",
+      trustedBy: "Dipercaya oleh tim di",
+      stats: {
+        years: "Tahun Pengalaman",
+        projects: "Proyek",
+        clients: "Klien",
+      },
     },
     about: {
       title: "Tentang Saya",
@@ -155,25 +162,6 @@ export const translations = {
       subtitle:
         "Punya proyek atau ingin berkolaborasi? Jangan ragu untuk menghubungi!",
       location: "Garut, Indonesia",
-      form: {
-        heading: "Kirim pesan",
-        name: "Nama",
-        email: "Email",
-        message: "Pesan",
-        namePlaceholder: "Nama Anda",
-        emailPlaceholder: "anda@contoh.com",
-        messagePlaceholder: "Ceritakan tentang proyek Anda...",
-        send: "Kirim Pesan",
-        sending: "Mengirim...",
-        success:
-          "Terima kasih! Pesan Anda telah terkirim. Saya akan segera membalas.",
-        error:
-          "Terjadi kesalahan. Silakan coba lagi atau email saya langsung.",
-        required: "Harap isi semua kolom.",
-        invalidEmail: "Harap masukkan alamat email yang valid.",
-        unavailable:
-          "Formulir kontak belum dikonfigurasi — silakan gunakan email atau tautan sosial di atas.",
-      },
     },
     footer: {
       rights: "Hak cipta dilindungi.",

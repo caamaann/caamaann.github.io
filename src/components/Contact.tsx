@@ -7,7 +7,6 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { socialLinks } from "@/lib/data";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { ContactForm } from "@/components/ContactForm";
 
 const contactItems = [
   {
@@ -81,7 +80,6 @@ export function Contact() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={item.label}
                     className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-(--text-primary) bg-(--bg-card-hover) border border-(--border) hover:border-(--accent) hover:shadow-[0_0_15px_var(--accent-glow)]"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -91,10 +89,6 @@ export function Contact() {
                   </motion.a>
                 ))}
               </div>
-
-              {/* Divider + Contact Form */}
-              <div className="h-px w-20 mx-auto my-8 bg-(--border)" />
-              <ContactForm />
             </div>
           </ScrollReveal>
         </div>

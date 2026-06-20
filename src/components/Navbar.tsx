@@ -35,26 +35,32 @@ export function Navbar() {
     setMounted(true);
   }, []);
 
+  // Toggle navbar background once the page is scrolled.
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      const sections = navLinks.map((link) =>
-        document.querySelector(link.href),
-      );
-      const scrollPos = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && (section as HTMLElement).offsetTop <= scrollPos) {
-          setActiveSection(navLinks[i].href);
-          break;
-        }
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Highlight the active nav link via IntersectionObserver (cheaper + smoother
+  // than recomputing offsets on every scroll event).
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.querySelector(link.href))
+      .filter((el): el is Element => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(`#${entry.target.id}`);
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   const handleNavClick = (href: string) => {
@@ -68,6 +74,7 @@ export function Navbar() {
   return (
     <>
       <motion.nav
+        aria-label="Primary"
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
           background: isScrolled ? "var(--bg-navbar)" : "transparent",
@@ -126,10 +133,10 @@ export function Navbar() {
             <button
               onClick={toggleLocale}
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105 text-(--text-secondary) bg-(--bg-card) border border-(--border)"
-              title={
+              aria-label={
                 locale === "en" ? "Switch to Indonesian" : "Switch to English"
               }
-              aria-label={
+              title={
                 locale === "en" ? "Switch to Indonesian" : "Switch to English"
               }
             >
@@ -144,8 +151,10 @@ export function Navbar() {
                 className="p-2.5 rounded-lg transition-all duration-200 text-(--text-secondary) bg-(--bg-card) border border-(--border)"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                aria-label={
+                  theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+                }
                 title={theme === "dark" ? "Switch to Light" : "Switch to Dark"}
-                aria-label={theme === "dark" ? "Switch to Light" : "Switch to Dark"}
               >
                 <AnimatePresence mode="wait">
                   {theme === "dark" ? (
@@ -178,10 +187,10 @@ export function Navbar() {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={toggleLocale}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-(--text-secondary) bg-(--bg-card) border border-(--border)"
               aria-label={
                 locale === "en" ? "Switch to Indonesian" : "Switch to English"
               }
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium text-(--text-secondary) bg-(--bg-card) border border-(--border)"
             >
               <Globe size={12} />
               {locale.toUpperCase()}
@@ -190,8 +199,10 @@ export function Navbar() {
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                aria-label={theme === "dark" ? "Switch to Light" : "Switch to Dark"}
                 className="p-2 rounded-lg text-(--text-secondary) bg-(--bg-card) border border-(--border)"
+                aria-label={
+                  theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+                }
               >
                 {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
               </button>
@@ -199,9 +210,9 @@ export function Navbar() {
 
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
+              className="p-2 rounded-lg relative z-10 text-(--text-primary)"
               aria-label={isMobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileOpen}
-              className="p-2 rounded-lg relative z-10 text-(--text-primary)"
             >
               {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
