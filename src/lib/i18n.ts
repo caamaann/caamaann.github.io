@@ -78,6 +78,24 @@ export const translations = {
       subtitle:
         "Have a project in mind or want to collaborate? Feel free to reach out!",
       location: "Garut, Indonesia",
+      form: {
+        heading: "Send a message",
+        name: "Name",
+        email: "Email",
+        message: "Message",
+        namePlaceholder: "Your name",
+        emailPlaceholder: "you@example.com",
+        messagePlaceholder: "Tell me about your project...",
+        send: "Send Message",
+        sending: "Sending...",
+        success:
+          "Thanks! Your message has been sent. I'll get back to you soon.",
+        error: "Something went wrong. Please try again or email me directly.",
+        required: "Please fill in all fields.",
+        invalidEmail: "Please enter a valid email address.",
+        unavailable:
+          "The contact form isn't configured yet — please use the email or social links above.",
+      },
     },
     footer: {
       rights: "All rights reserved.",
@@ -162,6 +180,24 @@ export const translations = {
       subtitle:
         "Punya proyek atau ingin berkolaborasi? Jangan ragu untuk menghubungi!",
       location: "Garut, Indonesia",
+      form: {
+        heading: "Kirim pesan",
+        name: "Nama",
+        email: "Email",
+        message: "Pesan",
+        namePlaceholder: "Nama Anda",
+        emailPlaceholder: "anda@contoh.com",
+        messagePlaceholder: "Ceritakan tentang proyek Anda...",
+        send: "Kirim Pesan",
+        sending: "Mengirim...",
+        success:
+          "Terima kasih! Pesan Anda telah terkirim. Saya akan segera membalas.",
+        error: "Terjadi kesalahan. Silakan coba lagi atau email saya langsung.",
+        required: "Harap isi semua kolom.",
+        invalidEmail: "Harap masukkan alamat email yang valid.",
+        unavailable:
+          "Formulir kontak belum dikonfigurasi — silakan gunakan email atau tautan sosial di atas.",
+      },
     },
     footer: {
       rights: "Hak cipta dilindungi.",

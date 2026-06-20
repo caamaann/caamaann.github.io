@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ContactForm } from "@/components/ContactForm";
 import { socialLinks } from "@/lib/data";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -89,6 +90,10 @@ export function Contact() {
                   </motion.a>
                 ))}
               </div>
+
+              {/* Contact Form */}
+              <div className="h-px w-20 mx-auto my-8 bg-(--border)" />
+              <ContactForm />
             </div>
           </ScrollReveal>
         </div>
